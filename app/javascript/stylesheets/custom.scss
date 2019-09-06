@@ -3,12 +3,10 @@
 $gray: #eaeaea;
 $gray-darker: darken($gray, 30%);
 
-
-// .note {
-//   box-sizing: border-box;
-//   border: 2px solid $gray;
-//   border-radius: 4px;
-// }
+// Offsets the top navbar
+.sticky-offset {
+  top: 56px;
+}
 
 .grid-item {
   // width: calc((100% / 3) - 10px);

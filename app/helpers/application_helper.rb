@@ -1,2 +1,12 @@
 module ApplicationHelper
+
+  def full_title(page_title = '')
+    base_title = 'Notes'
+    if page_title == ''
+      base_title
+    else
+      page_title << ' | ' << base_title
+    end
+  end
+
 end
