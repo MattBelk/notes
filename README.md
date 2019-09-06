@@ -9,7 +9,10 @@
 * Rich text notes with 
 [ActionText](https://edgeguides.rubyonrails.org/action_text_overview.html);
 * Mailers for the Devise confirmation/recovery using 
-[SendGrid](https://sendgrid.com/).
+[SendGrid](https://sendgrid.com/);
+* A test suite with basic automation using 
+[Guard](https://github.com/guard/guard) and 
+[Minitest](https://github.com/seattlerb/minitest).
 
 ## Ruby/Rails versions
 * Ruby version - 2.6.3
