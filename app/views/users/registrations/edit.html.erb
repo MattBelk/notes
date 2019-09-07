@@ -3,21 +3,23 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="form group">
-    <%= f.label :email %><br />
+    <%= f.label :email, "New Email" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email",
+                              class: 'form-control' %>
+  </div>
+  <div class="form group">
+    <%= f.label :name, "New Name" %><br />
+    <%= f.email_field :name, autocomplete: "name",
                               class: 'form-control' %>
   </div>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div class="label label-info">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
   <div class="form-group">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password, "New Password" %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "new-password",
                                     class: 'form-control' %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+    <% #if @minimum_password_length %<br /><em><%= @minimum_password_length % characters minimum</em><% end %>
   </div>
   <div class="form-group">
     <%= f.label :password_confirmation %><br />
@@ -29,7 +31,7 @@
     <%= f.password_field :current_password, autocomplete: "current-password",
                                             class: 'form-control' %>
   </div>
-  <%= f.submit "Update" %>
+  <%= f.submit "Update", class: "btn btn-primary" %>
 <% end %>
 <h3>Cancel my account</h3>
 <p>Unhappy?

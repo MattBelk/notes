@@ -19,20 +19,31 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto mr-3">
+      <% if user_signed_in? %>
       <li class="dropdown nav-item">
         <a class="nav-link dropdown-toggle" id="navbarUserDropdown" href="#" 
            role="button" data-toggle="dropdown" aria-haspopup="true" 
            aria-expanded="false">
-          @current_user
+          Signed in as <%= current_user.name %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarUserDropdown">
-          <%= link_to "Change Password", "", class: "dropdown-item" %>
+          <%= link_to "Edit Account", edit_user_registration_path, class: "dropdown-item" %>
           <div class="dropdown-divider"></div>
-          <%= link_to "Sign Out", "", class: "dropdown-item" %>
+          <%= link_to "Sign Out", destroy_user_session_path,
+                                  method: :delete,
+                                  class: "dropdown-item" %>
         </div>
       </li>
       <li class="mx-2">
       </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+      </li>
+      <% end %>
     </ul>
   </div>
 </nav>
