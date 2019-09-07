@@ -3,18 +3,24 @@
   <%= render 'layouts/head' %>
   <body>
     <%= render 'layouts/header' %>
-    <div class="container">
-      <div id="flash-container">
-        <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-        <% end %>
+    <div class="container my-3">
+      <%= render 'layouts/flash_messages' %>
+      <%# Use columns for Devise/User pages %>
+      <% if controller_name.in? %w(registrations confirmations passwords 
+                                   sessions users) %>
+      <div class="row">
+        <div class="col-8 offset-2 col-lg-6 offset-lg-3">
+          <%= yield %>
+        </div>
       </div>
+    <% else %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
-      <% if Rails.env.development? %>
-        <em>Currently in development environment</em>
-        <%= debug(params) %>
-      <% end %>
-    </div>
-  </body>
+    <% end %>
+    <%= render 'layouts/footer' %>
+    <% if Rails.env.development? %>
+      <em>Currently in development environment</em>
+      <%= debug(params) %>
+    <% end %>
+  </div>
+</body>
 </html>
