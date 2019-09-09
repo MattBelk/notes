@@ -1,6 +1,23 @@
 <% if user_signed_in? %>
 
-<%# render 'notes' %>
+<div class="row mt-5">
+  <div class="col-md-10 offset-md-1 center" id="new-note-container">
+    <%= render 'notes/form' %>
+  </div>
+</div>
+
+<div class="modal hide fade" id="edit-modal" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document" >
+    <div class="modal-content" id="edit-form" >
+    </div>
+  </div>
+</div>
+
+<%= render partial: 'notes/notes', object: @pinned_notes, 
+                             locals: { type: 'pinned' } %>
+
+<%= render partial: 'notes/notes', object: @unpinned_notes, 
+                             locals: { type: 'unpinned' } %>
 
 <% else %>
 

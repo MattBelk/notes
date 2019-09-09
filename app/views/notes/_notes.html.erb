@@ -1,0 +1,14 @@
+<div class="row py-3">
+  <div class="col-md-12 center">
+    <h1 id="<%= type == 'pinned' ? 'pinned-stats' : 'unpinned-stats' %>">
+      <% if type == 'pinned' && notes.count > 0 %>
+        <%= pluralize(notes.count, "pinned note") %>
+      <% elsif type == 'unpinned' && notes.count > 0 %>
+        <%= pluralize(notes.count, "unpinned note") %>
+      <% end %>
+    </h1>
+    <div class="grid", id= "<%= type %>", data-url = "<%= sort_user_notes_path %>">
+      <%= render notes %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+$("#edit-modal").removeClass("show");
+$(".modal-backdrop").remove();
+$(`#${<%= @note.id %>}`).replaceWith("<%= j(render( @note )) %>");
+$(".grid").masonry('reloadItems');
+$(".grid").masonry();

@@ -1,0 +1,30 @@
+<div class="note grid-item my-2 card" id="<%= note.id %>">
+    <div class="card-header">
+      
+      <% if note.pinned? %>
+        <%= form_with(url: pin_path(note), html: { method: :delete } ) do |f| %>
+          <%= f.submit "📌", class: "pin-btn bg-success float float-right" %>
+        <% end %>
+      <% else %>
+        <%= form_with(model: note, url: pins_path, html: { method: :post } ) do |f| %>
+          <div><%= hidden_field_tag :id, note.id %></div>
+          <%= f.submit "📌", class: "pin-btn float float-right" %>
+        <% end %>
+      <% end %>
+      <%= note.title %></h4>
+    </div>
+  <div class="card-body">
+    <%= note.body %>
+  </div>
+  <div class="card-footer">
+    <%= link_to "Delete note", user_note_path(note), method: :delete,
+                              data: { confirm: "Are you sure?" },
+                              remote: true,
+                              class: "btn btn-sm btn-secondary" %>
+    <%= link_to "Edit note", edit_user_note_path(note),
+                              remote: true,
+                              class: "btn btn-sm btn-primary",
+                              data: { toggle: "modal",
+                                      target: "#edit-modal" }  %>
+  </div>
+</div>

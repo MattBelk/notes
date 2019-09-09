@@ -1,0 +1,13 @@
+<%= form_with model: @new_note, url: user_notes_path, 
+              class: "p-2", id: "new-note-form" do |f| %>
+  <%= render 'users/shared/error_messages', resource: f.object %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "Title", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.rich_text_area :body, placeholder: "Body", class: "form-control" %>
+  </div>
+  <%= f.submit "Add note", class: "btn btn-primary" %>
+<% end %>

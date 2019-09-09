@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :notes
 
   MAX_NAME_LENGTH = 20
 

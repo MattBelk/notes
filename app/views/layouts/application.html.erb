@@ -8,19 +8,19 @@
       <%# Use columns for Devise/User pages %>
       <% if controller_name.in? %w(registrations confirmations passwords 
                                    sessions users) %>
-      <div class="row">
-        <div class="col-8 offset-2 col-lg-6 offset-lg-3">
-          <%= yield %>
+        <div class="row">
+          <div class="col-8 offset-2 col-lg-6 offset-lg-3">
+            <%= yield %>
+          </div>
         </div>
-      </div>
-    <% else %>
-      <%= yield %>
-    <% end %>
-    <%= render 'layouts/footer' %>
-    <% if Rails.env.development? %>
-      <em>Currently in development environment</em>
-      <%= debug(params) %>
-    <% end %>
-  </div>
-</body>
+      <% else %>
+        <%= yield %>
+      <% end %>
+      <%= render 'layouts/footer' %>
+      <% if Rails.env.development? %>
+        <em>Currently in development environment</em>
+        <%= debug(params) %>
+      <% end %>
+    </div>
+  </body>
 </html>

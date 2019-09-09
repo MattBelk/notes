@@ -12,6 +12,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'static_pages/about'
     assert_select "a[href=?]", root_path, count: 2
+    assert_select "span.home-scroll", count: 0
     assert_select "a[href=?]", about_path, count: 1
     assert_select "a[href=?]", "https://github.com/MattBelk/notes", count: 2
     assert_select "a[href=?]", "https://github.com/MattBelk", count: 2
@@ -23,7 +24,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     sign_in @user
     get root_path
     assert_template 'static_pages/home'
-    assert_select "a[href=?]", root_path, count: 2
+    assert_select "a[href=?]", root_path, count: 0
+    assert_select "span.home-scroll", count: 2
     assert_select "a[href=?]", about_path, count: 1
     assert_select "a[href=?]", "https://github.com/MattBelk/notes", count: 1
     assert_select "a[href=?]", "https://github.com/MattBelk", count: 1

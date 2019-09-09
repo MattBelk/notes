@@ -11,6 +11,7 @@ require("jquery-ui/ui/widgets/sortable")
 
 import "bootstrap"
 import "../stylesheets/application"
+import '../main'
 
 
 

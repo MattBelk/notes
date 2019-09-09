@@ -14,6 +14,16 @@ Rails.application.routes.draw do
   get '/users', to: redirect('/')
 
 
+  resource :user do
+    resources :notes, except: [:index, :new] do
+      # resources :pins, only: [:create, :destroy]
+      collection do
+        patch :sort
+      end
+    end
+  end
+
+  resources :pins, only: [:create, :destroy]
 
   
 end
