@@ -3,14 +3,25 @@
 $gray: #eaeaea;
 $gray-darker: darken($gray, 30%);
 
-// Offsets the top navbar
+
+// Navbar
+
 .sticky-offset {
   top: 56px;
 }
 
+
+// Forms
+
 form {
   margin: $spacer * 1.5 0;
 }
+.field_with_errors input {
+  @extend .is-invalid;
+}
+
+
+// Notes
 
 .grid-item {
   // width: calc((100% / 3) - 10px);
@@ -24,11 +35,13 @@ form {
   }
 }
 
-.debug_dump {
-  border: 2px solid gray;
-  padding: 10px;
-  border-radius: 4px;
+.pin-btn {
+  border: 1px solid $gray-darker;
+  border-radius: 2px;
 }
+
+
+// ActionText / Trix editor
 
 trix-editor {
   &.form-control {
@@ -51,7 +64,11 @@ trix-editor {
   }
 }
 
-.pin-btn {
-  border: 1px solid $gray-darker;
-  border-radius: 2px;
+
+// Debug in development ENV
+
+.debug_dump {
+  border: 2px solid gray;
+  padding: 10px;
+  border-radius: 4px;
 }

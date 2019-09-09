@@ -39,6 +39,9 @@ guard :minitest do
   watch(%r{^app/controllers/(.*?)_controller\.rb$}) do |matches|
     resource_tests(matches[1])
   end
+  watch(%r{^app/controllers/users/(.*?)_controller\.rb$}) do |matches|
+    resource_tests(matches[1])
+  end
 
   # Watches views
   watch(%r{^app/views/([^/]*?)/.*\.(html|js)\.erb$}) do |matches|
@@ -57,6 +60,9 @@ guard :minitest do
   end
 
   watch('app/views/layouts/application.html.erb') do
+    'test/integration/site_layout_test.rb'
+  end
+  watch('app/views/static_pages/about.html.erb') do
     'test/integration/site_layout_test.rb'
   end
   

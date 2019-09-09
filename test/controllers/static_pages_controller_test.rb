@@ -12,7 +12,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
     get root_path
     assert_response :success
-    assert_select "title", full_title()
+    assert_select "title", full_title
   end
 
   test "should get about" do

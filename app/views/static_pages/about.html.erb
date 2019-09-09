@@ -1,13 +1,16 @@
 <% provide(:title, "About") %>
 <div class="text-center jumbotron">
   <h1 class="display-3 mb-5">About</h1>
-  <p>
+  <p class="m-4">
     This app was made by <a href="https://github.com/MattBelk">Matt Belk</a>
     as a basic sample app in Rails 6. You can view the source code on 
     <a href="https://github.com/MattBelk/notes">GitHub</a>. 
   </p>
-  <p>
-    Sign up for an account to get started, or use email: user@example.com, password: password.
+  <p class="m-1">
+    <%= link_to "Sign up", new_user_registration_path %> 
+    for an account to get started, or
+    <%= link_to "sign in", new_user_session_path %> 
+    with email: user@example.com, password: password.
   </p>
   <p>
     Note: This example account will reset when logged out.
@@ -19,7 +22,7 @@
   <ul class="align-items-center text-left" style="display:inline-block;" >
     <br>
     <li>
-      MVC design pattern with Rails.
+      MVC design pattern/RESTful architecture with Rails.
     </li>
     <br>
     <li>
