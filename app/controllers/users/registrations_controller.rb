@@ -4,7 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   
-  before_action :not_example_user, only: [:destroy]
+  before_action :not_example_user, only: [:destroy, :update]
 
   # GET /resource/sign_up
   def new
@@ -45,8 +45,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def not_example_user
     user = current_user
     if user.id == 1
-      flash.now[:alert] = "Sorry, you can't delete the example account!"
-      render 'users/registrations/edit'
+      flash[:alert] = "Sorry, you can't edit the example account!"
+      redirect_to edit_user_registration_url
     end
   end
 
