@@ -40,7 +40,7 @@ guard :minitest do
     resource_tests(matches[1])
   end
   watch(%r{^app/controllers/users/(.*?)_controller\.rb$}) do |matches|
-    controller_test(matches[1])
+    resource_tests(matches[1])
   end
 
   # Watches views
