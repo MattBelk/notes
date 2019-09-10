@@ -28,6 +28,8 @@ gem 'devise', '~> 4.7'
 gem 'acts_as_list', '~> 0.9'
 gem 'faker', '~> 2.2'
 
+gem 'sendgrid-ruby'
+
 
 
 # Reduces boot times through caching; required in config/boot.rb
