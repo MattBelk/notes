@@ -23,10 +23,15 @@ class Users::SessionsController < Devise::SessionsController
   protected
 
   def reset_example_user
-    user = current_user
-    if user.id == 1
-      user.notes.destroy_all
+
+    if user_signed_in? && current_user.id == 1
+      # Case where logging out
+      current_user.notes.destroy_all
+    elsif params[:user] && params[:user][:email] == "user@example.com"
+      # Otherwise user is logging in
+      User.first.notes.destroy_all
     end
+    
   end
 
 

@@ -22,23 +22,33 @@ with basic automation using
 
 ## Getting started
 
-Things you may want to cover:
+You can use a deployed version of the app on (Heroku)[https://glacial-bayou-09134.herokuapp.com/].
 
-* System dependencies
+To get started with the app in a local server, you'll need to have Ruby/Rails 
+installed. Clone the repo and then install gems using:
 
-* Configuration
+```
+$ bundle install --without production
+```
 
-* Database creation
+Next, migrate and then seed the database:
 
-* Database initialization
+```
+$ bin/rails db:migrate
+$ bin/rails db:seed
+```
 
-* How to run the test suite
+Then run the test suite to verify that everything is working:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ bin/rails test
+```
 
-* Deployment instructions
+If the test suite passes, you can run the app in a local server:
 
-* ...
+```
+$ bin/rails server
+```
 
 ## Note for Sendgrid with Heroku
 
@@ -50,3 +60,10 @@ free to set up) and then set the Heroku config var SENDGRID_API_KEY to this key.
 
 You'll also need to change the host in this same file, and change the domain if 
 not using Heroku.
+
+## Note about images with ActionText
+
+By default, ActiveStorage (used by ActionText) uses local storage for images. 
+This means that on Heroku, any image attached to a note will not persist. In an 
+actual app, you could use a cloud file storage service such as Amazon's S3 to 
+store these files instead.
