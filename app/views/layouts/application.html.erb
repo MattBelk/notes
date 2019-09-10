@@ -4,23 +4,25 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container my-3">
-      <%= render 'layouts/flash_messages' %>
+      <div id="flash-container">
+        <%= render 'layouts/flash_messages' %>
+      </div>
       <%# Use columns for Devise/User pages %>
       <% if controller_name.in? %w(registrations confirmations passwords 
                                    sessions users) %>
-        <div class="row">
-          <div class="col-8 offset-2 col-lg-6 offset-lg-3">
-            <%= yield %>
-          </div>
+      <div class="row">
+        <div class="col-8 offset-2 col-lg-6 offset-lg-3">
+          <%= yield %>
         </div>
-      <% else %>
-        <%= yield %>
-      <% end %>
-      <%= render 'layouts/footer' %>
-      <% if Rails.env.development? %>
-        <em>Currently in development environment</em>
-        <%= debug(params) %>
-      <% end %>
-    </div>
-  </body>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
+    <%= render 'layouts/footer' %>
+    <% if Rails.env.development? %>
+      <em>Currently in development environment</em>
+      <%= debug(params) %>
+    <% end %>
+  </div>
+</body>
 </html>

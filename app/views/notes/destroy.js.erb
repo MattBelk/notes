@@ -1,3 +1,4 @@
-removeNote(<%= j(@note.id) %>);
+$("#flash-container").html("<%= j( render 'layouts/flash_messages' ) %>");
+removeNote(<%= @note.id %>);
 reloadGrids();
 updateNoteHeadings();

@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_090327) do
     t.integer "position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "pinned"
+    t.boolean "pinned", default: false, null: false
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 

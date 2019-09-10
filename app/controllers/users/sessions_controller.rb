@@ -2,7 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
 
-  # before_action :reset_example_user, only: [:destroy]
+  before_action :reset_example_user, only: [:create, :destroy]
 
   # GET /resource/sign_in
   def new
@@ -25,10 +25,7 @@ class Users::SessionsController < Devise::SessionsController
   def reset_example_user
     user = current_user
     if user.id == 1
-      # user.reset_password("password", "password")
-      # user.update_columns(email: "user@example.com", name: "Example User")
-
-      # Reset user's notes
+      user.notes.destroy_all
     end
   end
 

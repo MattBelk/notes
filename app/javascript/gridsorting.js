@@ -7,7 +7,7 @@ document.addEventListener("turbolinks:load", () => {
   });
 
   // Functions for jquery-ui sortable
-  $("#pinned, #normal").sortable({
+  $("#pinned, #unpinned").sortable({
     items: "> div.grid-item",
     update: function(event, ui) {
 

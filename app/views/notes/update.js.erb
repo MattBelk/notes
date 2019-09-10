@@ -1,4 +1,6 @@
+$("#flash-container").html("<%= j( render 'layouts/flash_messages' ) %>");
 $("#edit-modal").removeClass("show");
+$("#edit-modal").css("display", "none");
 $(".modal-backdrop").remove();
 $(`#${<%= @note.id %>}`).replaceWith("<%= j(render( @note )) %>");
 $(".grid").masonry('reloadItems');

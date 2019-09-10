@@ -1,6 +1,11 @@
 # README
 
 ## Basic notes app made using Rails. It has: 
+* A test suite using 
+[Minitest](https://github.com/seattlerb/minitest) and
+[Capybara](https://github.com/teamcapybara/capybara) (driven by Selenium),
+with basic automation using
+[Guard](https://github.com/guard/guard).
 * User authentication, email confirmation/recovery, etc... using 
 [Devise](https://github.com/plataformatec/devise);
 * A sortable grid interface for notes using 
@@ -10,9 +15,6 @@
 [ActionText](https://edgeguides.rubyonrails.org/action_text_overview.html);
 * Mailers for the Devise confirmation/recovery using 
 [SendGrid](https://sendgrid.com/);
-* A test suite with basic automation using 
-[Guard](https://github.com/guard/guard) and 
-[Minitest](https://github.com/seattlerb/minitest).
 
 ## Ruby/Rails versions
 * Ruby version - 2.6.3

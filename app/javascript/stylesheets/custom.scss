@@ -10,8 +10,10 @@ $gray-darker: darken($gray, 30%);
   top: 56px;
 }
 
-span.nav-link {
-  cursor: pointer;
+span {
+  &.nav-link, &.navbar-brand {
+    cursor: pointer;
+  }
 }
 
 

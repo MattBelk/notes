@@ -16,9 +16,9 @@ class NotesController < ApplicationController
           redirect_to root_url
         end
         format.js do
-          flash.now[:notice] = "Note Created"
           @unpinned_count = Note.unpinned.count
           @pinned_count = Note.pinned.count
+          flash.now[:notice] = "Note Created"
         end
       end
     else
@@ -37,10 +37,13 @@ class NotesController < ApplicationController
 
   def update
     @note = current_user.notes.find(params[:id])
-    if @note.update_attributes(note_params)
+    if @note.update(note_params)
       respond_to do |format|
-        format.html { redirect_to root_url }
-        format.js
+        format.html do
+          redirect_to root_url
+          flash[:notice] = "Note Updated"
+        end
+        format.js { flash.now[:notice] = "Note Updated" }
       end
     else
       flash[:alert] = "Note not updated"
@@ -54,8 +57,11 @@ class NotesController < ApplicationController
     @pinned = @note.pinned?
     @note.destroy
     respond_to do |format|
-      format.html { redirect_to root_url }
-      format.js
+      format.html do
+        flash[:alert] = "Note deleted"
+        redirect_to root_url
+      end
+      format.js { flash.now[:alert] = "Note Deleted" }
     end
   end
 

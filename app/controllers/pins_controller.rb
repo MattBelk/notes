@@ -6,7 +6,7 @@ class PinsController < ApplicationController
   def create
     @user = current_user
     @note = @user.notes.find(params[:id])
-    @note.pin
+    @user.pin(@note)
     @note.insert_at(@user.notes.pinned.count)
     respond_to do |format|
       format.html { redirect_to root_url }
@@ -17,7 +17,7 @@ class PinsController < ApplicationController
   def destroy
     @user = current_user
     @note = @user.notes.find(params[:id])
-    @note.unpin
+    @user.unpin(@note)
     @note.insert_at(@user.notes.pinned.count + 1)
     respond_to do |format|
       format.html { redirect_to root_url }
