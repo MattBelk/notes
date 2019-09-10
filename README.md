@@ -22,7 +22,7 @@ with basic automation using
 
 ## Getting started
 
-You can use a deployed version of the app on (Heroku)[https://glacial-bayou-09134.herokuapp.com/].
+You can use a deployed version of the app on (Heroku)[https://morning-shore-44509.herokuapp.com/].
 
 To get started with the app in a local server, you'll need to have Ruby/Rails 
 installed. Clone the repo and then install gems using:
