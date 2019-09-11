@@ -8,6 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery-ui/ui/widgets/sortable")
+require("jquery-ui-touch-punch")
 
 import "bootstrap"
 import "../stylesheets/application"
